@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <title>Sarkar</title>
+
+  <!-- PREMIUM CINEMATIC FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Inter:wght@600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: #03070c;
+      color: #ffffff;
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+
+    /* =========================================
+       MAIN SCREEN
+    ========================================= */
+
+    .page {
+      width: 100%;
+      height: 100dvh;
+      min-height: 560px;
+
+      position: relative;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 9px 12px;
+    }
+
+
+    /* =========================================
+       BACKGROUND
+    ========================================= */
+
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(80, 190, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(80, 190, 255, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 38px 38px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 14%,
+          black 86%,
+          transparent
+        );
+    }
+
+
+    .blue-orb {
+      position: absolute;
+
+      width: 350px;
+      height: 350px;
+
+      top: -175px;
+      left: -150px;
+
+      border-radius: 50%;
+
+      background: rgba(0, 164, 255, 0.16);
+
+      filter: blur(75px);
+
+      animation: blueFloat 7s ease-in-out infinite alternate;
+    }
+
+
+    .green-orb {
+      position: absolute;
+
+      width: 320px;
+      height: 320px;
+
+      bottom: -175px;
+      right: -145px;
+
+      border-radius: 50%;
+
+      background: rgba(65, 255, 135, 0.11);
+
+      filter: blur(75px);
+
+      animation: greenFloat 8s ease-in-out infinite alternate;
+    }
+
+
+    .purple-orb {
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      top: 42%;
+      right: -110px;
+
+      border-radius: 50%;
+
+      background: rgba(120, 80, 255, 0.06);
+
+      filter: blur(65px);
+    }
+
+
+    @keyframes blueFloat {
+
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(35px, 30px) scale(1.12);
+      }
+
+    }
+
+
+    @keyframes greenFloat {
+
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(-30px, -25px) scale(1.1);
+      }
+
+    }
+
+
+    /* =========================================
+       MAIN CONTAINER
+    ========================================= */
+
+    .container {
+      width: 100%;
+      max-width: 440px;
+
+      height: 100%;
+      max-height: 830px;
+
+      position: relative;
+      z-index: 5;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 5px 2px;
+    }
+
+
+    /* =========================================
+       LIVE PILL
+    ========================================= */
+
+    .top {
+      text-align: center;
+
+      animation: entrance .7s ease both;
+    }
+
+
+    .live-pill {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      padding: 7px 15px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(75, 205, 255, .2);
+
+      background:
+        linear-gradient(
+          100deg,
+          rgba(35, 165, 255, .1),
+          rgba(80, 255, 160, .045)
+        );
+
+      box-shadow:
+        0 8px 28px rgba(0,0,0,.28),
+        inset 0 1px rgba(255,255,255,.07);
+
+      backdrop-filter: blur(15px);
+    }
+
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: #46ff94;
+
+      box-shadow:
+        0 0 8px #46ff94,
+        0 0 17px rgba(70,255,148,.65);
+
+      animation: pulse 1.25s infinite;
+    }
+
+
+    .live-pill span:last-child {
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.7px;
+
+      color: #d8f5ff;
+
+      text-transform: uppercase;
+    }
+
+
+    @keyframes pulse {
+
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .35;
+        transform: scale(.72);
+      }
+
+    }
+
+
+    /* =========================================
+       LOGO AREA
+    ========================================= */
+
+    .logo-stage {
+      width: 145px;
+      height: 140px;
+
+      margin: 1px auto -2px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    /* Rotating ring */
+
+    .logo-ring {
+      position: absolute;
+
+      width: 122px;
+      height: 122px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(75,190,255,.3);
+
+      border-top-color: rgba(95,255,165,.85);
+      border-right-color: rgba(60,190,255,.65);
+
+      animation: rotateRing 7s linear infinite;
+
+      box-shadow:
+        0 0 25px rgba(30,175,255,.13);
+    }
+
+
+    .logo-ring::after {
+      content: "";
+
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      top: -3px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      border-radius: 50%;
+
+      background: #65ffad;
+
+      box-shadow:
+        0 0 10px #65ffad,
+        0 0 20px rgba(101,255,173,.7);
+    }
+
+
+    @keyframes rotateRing {
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    .logo-glow {
+      position: absolute;
+
+      width: 108px;
+      height: 108px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(20,180,255,.24),
+          rgba(40,255,155,.08) 48%,
+          transparent 72%
+        );
+
+      filter: blur(11px);
+
+      animation: logoGlow 2s ease-in-out infinite alternate;
+    }
+
+
+    @keyframes logoGlow {
+
+      from {
+        transform: scale(.9);
+        opacity: .65;
+      }
+
+      to {
+        transform: scale(1.08);
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =========================================
+       SPORTS FLOATING ELEMENTS
+    ========================================= */
+
+    .football {
+      position: absolute;
+
+      right: -4px;
+      top: 17px;
+
+      font-size: 24px;
+
+      filter:
+        drop-shadow(0 0 9px rgba(255,255,255,.35));
+
+      animation: footballFloat 3s ease-in-out infinite;
+    }
+
+
+    .cricket {
+      position: absolute;
+
+      left: -6px;
+      bottom: 13px;
+
+      font-size: 24px;
+
+      filter:
+        drop-shadow(0 0 9px rgba(70,215,255,.35));
+
+      animation: cricketFloat 3.4s ease-in-out infinite;
+    }
+
+
+    @keyframes footballFloat {
+
+      0%,100% {
+        transform: translateY(0) rotate(-8deg);
+      }
+
+      50% {
+        transform: translateY(-9px) rotate(8deg);
+      }
+
+    }
+
+
+    @keyframes cricketFloat {
+
+      0%,100% {
+        transform: translateY(0) rotate(8deg);
+      }
+
+      50% {
+        transform: translateY(8px) rotate(-8deg);
+      }
+
+    }
+
+
+    .logo {
+      position: relative;
+      z-index: 5;
+
+      width: 100px;
+      height: 100px;
+
+      object-fit: contain;
+
+      border-radius: 50%;
+
+      filter:
+        drop-shadow(0 0 17px rgba(50,190,255,.35))
+        drop-shadow(0 0 10px rgba(50,255,150,.15));
+
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+
+
+    @keyframes logoFloat {
+
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
+
+    }
+
+
+    /* =========================================
+       BRANDING
+    ========================================= */
+
+    .brand-title h1 {
+      font-family: "Bebas Neue", sans-serif;
+
+      font-size: clamp(49px, 14vw, 66px);
+
+      line-height: .82;
+
+      letter-spacing: 2.4px;
+
+      text-transform: uppercase;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #dff6ff 45%,
+          #91a7b9 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      text-shadow:
+        0 12px 35px rgba(0,0,0,.45);
+    }
+
+
+    .brand-title h1 span {
+      background:
+        linear-gradient(
+          90deg,
+          #55d8ff,
+          #66ffa9
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+
+    .sub-brand {
+      display: inline-block;
+
+      margin-top: 5px;
+
+      padding: 4px 12px;
+
+      border-left: 2px solid #55d8ff;
+      border-right: 2px solid #66ffa9;
+
+      font-family: "Oswald", sans-serif;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      color: #bdefff;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       MOVING TICKER
+    ========================================= */
+
+    .ticker-window {
+      width: 100%;
+
+      margin-top: 8px;
+
+      overflow: hidden;
+
+      border-top: 1px solid rgba(100,200,255,.09);
+      border-bottom: 1px solid rgba(100,200,255,.09);
+
+      background: rgba(255,255,255,.018);
+
+      white-space: nowrap;
+    }
+
+
+    .ticker {
+      display: inline-flex;
+
+      min-width: max-content;
+
+      padding: 7px 0;
+
+      animation: tickerMove 16s linear infinite;
+    }
+
+
+    .ticker span {
+      margin-right: 34px;
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.2px;
+
+      color: #a8c5d7;
+
+      text-transform: uppercase;
+    }
+
+
+    .ticker .green {
+      color: #59ff9e;
+    }
+
+
+    .ticker .blue {
+      color: #63d9ff;
+    }
+
+
+    @keyframes tickerMove {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+
+    /* =========================================
+       MIDDLE
+    ========================================= */
+
+    .middle {
+      width: 100%;
+    }
+
+
+    /* =========================================
+       LIQUID ACTIVE RATE
+    ========================================= */
+
+    .active-card {
+      width: 94%;
+
+      margin: 7px auto 9px;
+
+      padding: 9px 13px;
+
+      border-radius: 14px;
+
+      border: 1px solid rgba(72,255,154,.16);
+
+      background:
+        linear-gradient(
+          110deg,
+          rgba(55,255,145,.065),
+          rgba(60,180,255,.035)
+        );
+
+      box-shadow:
+        inset 0 1px rgba(255,255,255,.04),
+        0 8px 25px rgba(0,0,0,.18);
+    }
+
+
+    .active-top {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+
+    .active-label {
+      font-size: 8px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.2px;
+
+      color: #9db8c8;
+
+      text-transform: uppercase;
+    }
+
+
+    .active-value {
+      font-family: "Bebas Neue", sans-serif;
+
+      font-size: 23px;
+
+      line-height: 1;
+
+      color: #61ff9d;
+
+      text-shadow:
+        0 0 15px rgba(70,255,145,.3);
+    }
+
+
+    /* LIQUID BAR */
+
+    .liquid-track {
+      width: 100%;
+      height: 8px;
+
+      margin-top: 7px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.07);
+
+      box-shadow:
+        inset 0 1px 3px rgba(0,0,0,.5);
+    }
+
+
+    .liquid-fill {
+      width: 93%;
+      height: 100%;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #18c8ff,
+          #45f99b,
+          #8bffbd
+        );
+
+      box-shadow:
+        0 0 14px rgba(70,255,155,.5);
+    }
+
+
+    /* Moving liquid wave */
+
+    .liquid-fill::before {
+      content: "";
+
+      position: absolute;
+
+      width: 180%;
+
+      height: 220%;
+
+      left: -25%;
+      top: -62%;
+
+      background:
+        repeating-radial-gradient(
+          ellipse at center,
+          rgba(255,255,255,.28) 0px,
+          rgba(255,255,255,.28) 2px,
+          transparent 3px,
+          transparent 13px
+        );
+
+      opacity: .45;
+
+      animation:
+        liquidWave 2.4s linear infinite;
+    }
+
+
+    .liquid-fill::after {
+      content: "";
+
+      position: absolute;
+
+      width: 55px;
+      height: 100%;
+
+      top: 0;
+      left: -60px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.6),
+          transparent
+        );
+
+      transform: skewX(-18deg);
+
+      animation:
+        liquidShine 2.5s infinite;
+    }
+
+
+    @keyframes liquidWave {
+
+      from {
+        transform: translateX(0) rotate(0deg);
+      }
+
+      to {
+        transform: translateX(-38px) rotate(3deg);
+      }
+
+    }
+
+
+    @keyframes liquidShine {
+
+      0% {
+        left: -60px;
+      }
+
+      55%,
+      100% {
+        left: 120%;
+      }
+
+    }
+
+
+    /* =========================================
+       MINI FEATURE ELEMENTS
+    ========================================= */
+
+    .features {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 7px;
+
+      width: 94%;
+
+      margin: 0 auto;
+    }
+
+
+    .feature {
+      height: 69px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 13px;
+
+      border: 1px solid rgba(100,190,240,.12);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(80,180,255,.075),
+          rgba(255,255,255,.018)
+        );
+
+      box-shadow:
+        inset 0 1px rgba(255,255,255,.045),
+        0 8px 20px rgba(0,0,0,.2);
+
+      backdrop-filter: blur(12px);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .feature-name {
+      margin-top: 3px;
+
+      font-family: "Oswald", sans-serif;
+
+      font-size: 9px;
+
+      font-weight: 700;
+
+      letter-spacing: 1.3px;
+
+      color: #dcefff;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       MINI CRICKET ANIMATION
+    ========================================= */
+
+    .mini-cricket {
+      width: 43px;
+      height: 27px;
+
+      position: relative;
+    }
+
+
+    .bat {
+      position: absolute;
+
+      width: 6px;
+      height: 28px;
+
+      left: 13px;
+      top: 0;
+
+      border-radius: 4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #9bc5d5,
+          #ffffff,
+          #6c9cad
+        );
+
+      transform: rotate(25deg);
+
+      transform-origin: bottom center;
+
+      animation: batSwing 1.7s ease-in-out infinite;
+    }
+
+
+    .bat::after {
+      content: "";
+
+      position: absolute;
+
+      width: 5px;
+      height: 10px;
+
+      left: .5px;
+      bottom: -7px;
+
+      border-radius: 3px;
+
+      background: #394d58;
+    }
+
+
+    .ball {
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #ff4d55;
+
+      box-shadow:
+        0 0 9px rgba(255,70,80,.65);
+
+      left: 31px;
+      top: 5px;
+
+      animation: ballMove 1.7s ease-in-out infinite;
+    }
+
+
+    @keyframes batSwing {
+
+      0%,100% {
+        transform: rotate(25deg);
+      }
+
+      45% {
+        transform: rotate(-28deg);
+      }
+
+    }
+
+
+    @keyframes ballMove {
+
+      0% {
+        transform: translate(0, 0);
+      }
+
+      45% {
+        transform: translate(-20px, 11px);
+      }
+
+      65% {
+        transform: translate(-5px, 18px);
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+
+    }
+
+
+    /* =========================================
+       MINI FOOTBALL ANIMATION
+    ========================================= */
+
+    .mini-football {
+      width: 43px;
+      height: 27px;
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+    }
+
+
+    .mini-football .ball-icon {
+      font-size: 22px;
+
+      filter:
+        drop-shadow(0 0 7px rgba(90,210,255,.35));
+
+      animation: footballKick 1.8s ease-in-out infinite;
+    }
+
+
+    .football-line {
+      position: absolute;
+
+      width: 31px;
+      height: 2px;
+
+      bottom: 3px;
+
+      border-radius: 99px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(80,210,255,.6),
+          transparent
+        );
+
+      animation: linePulse 1.8s ease-in-out infinite;
+    }
+
+
+    @keyframes footballKick {
+
+      0%,100% {
+        transform: translateX(-5px) rotate(-10deg);
+      }
+
+      50% {
+        transform: translateX(7px) rotate(15deg);
+      }
+
+    }
+
+
+    @keyframes linePulse {
+
+      0%,100% {
+        opacity: .25;
+        transform: scaleX(.65);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+    }
+
+
+    /* =========================================
+       MINI ANALYSIS ANIMATION
+    ========================================= */
+
+    .mini-analysis {
+      width: 45px;
+      height: 29px;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: center;
+
+      gap: 3px;
+    }
+
+
+    .analysis-bar {
+      width: 5px;
+
+      border-radius: 3px 3px 1px 1px;
+
+      background:
+        linear-gradient(
+          to top,
+          #36cfff,
+          #66ffa9
+        );
+
+      box-shadow:
+        0 0 7px rgba(60,220,255,.2);
+
+      animation: analysisBars 1.4s ease-in-out infinite;
+    }
+
+
+    .analysis-bar:nth-child(1) {
+      height: 11px;
+      animation-delay: 0s;
+    }
+
+
+    .analysis-bar:nth-child(2) {
+      height: 19px;
+      animation-delay: .15s;
+    }
+
+
+    .analysis-bar:nth-child(3) {
+      height: 14px;
+      animation-delay: .3s;
+    }
+
+
+    .analysis-bar:nth-child(4) {
+      height: 25px;
+      animation-delay: .45s;
+    }
+
+
+    .analysis-bar:nth-child(5) {
+      height: 20px;
+      animation-delay: .6s;
+    }
+
+
+    @keyframes analysisBars {
+
+      0%,100% {
+        transform: scaleY(.65);
+        opacity: .55;
+      }
+
+      50% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+
+    }
+
+
+    /* =========================================
+       CTA
+    ========================================= */
+
+    .cta-area {
+      text-align: center;
+
+      margin-top: 8px;
+    }
+
+
+    .cta {
+      width: 94%;
+
+      min-height: 57px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      border-radius: 15px;
+
+      text-decoration: none;
+
+      color: #031017;
+
+      background:
+        linear-gradient(
+          105deg,
+          #54d9ff 0%,
+          #68edff 45%,
+          #5dff9d 100%
+        );
+
+      border: 1px solid rgba(255,255,255,.35);
+
+      box-shadow:
+        0 12px 35px rgba(40,200,255,.22),
+        0 6px 25px rgba(55,255,145,.12),
+        inset 0 1px rgba(255,255,255,.65);
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.2px;
+
+      text-transform: uppercase;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .cta:hover {
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 17px 42px rgba(40,200,255,.3),
+        0 8px 30px rgba(55,255,145,.18),
+        inset 0 1px rgba(255,255,255,.7);
+
+    }
+
+
+    .cta:active {
+      transform: scale(.98);
+    }
+
+
+    /* CTA shine */
+
+    .cta::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -80%;
+
+      width: 55%;
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.55),
+          transparent
+        );
+
+      transform: skewX(-20deg);
+
+      animation: ctaShine 3.3s infinite;
+    }
+
+
+    @keyframes ctaShine {
+
+      0% {
+        left: -80%;
+      }
+
+      45%,
+      100% {
+        left: 130%;
+      }
+
+    }
+
+
+    .cta-icon {
+      position: relative;
+      z-index: 2;
+
+      width: 24px;
+      height: 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: rgba(0,0,0,.09);
+
+      font-size: 12px;
+    }
+
+
+    .cta-text {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .cta-note {
+      margin-top: 5px;
+
+      font-size: 7px;
+
+      font-weight: 800;
+
+      letter-spacing: .9px;
+
+      color: rgba(255,255,255,.31);
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .footer {
+      text-align: center;
+
+      padding-bottom: 1px;
+
+      font-size: 7px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      color: rgba(255,255,255,.23);
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================
+       ENTRY
+    ========================================= */
+
+    @keyframes entrance {
+
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* =========================================
+       SMALL HEIGHT MOBILE
+    ========================================= */
+
+    @media (max-height: 680px) {
+
+      .page {
+        padding: 5px 10px;
+      }
+
+      .container {
+        padding: 1px 2px;
+      }
+
+      .logo-stage {
+        width: 112px;
+        height: 108px;
+      }
+
+      .logo {
+        width: 79px;
+        height: 79px;
+      }
+
+      .logo-ring {
+        width: 98px;
+        height: 98px;
+      }
+
+      .logo-glow {
+        width: 88px;
+        height: 88px;
+      }
+
+      .football {
+        font-size: 19px;
+        right: 0;
+      }
+
+      .cricket {
+        font-size: 19px;
+        left: 0;
+      }
+
+      .brand-title h1 {
+        font-size: 49px;
+      }
+
+      .sub-brand {
+        margin-top: 3px;
+        font-size: 10px;
+      }
+
+      .ticker-window {
+        margin-top: 5px;
+      }
+
+      .ticker {
+        padding: 5px 0;
+      }
+
+      .active-card {
+        margin-top: 5px;
+        margin-bottom: 7px;
+      }
+
+      .feature {
+        height: 60px;
+      }
+
+      .cta {
+        min-height: 50px;
+      }
+
+    }
+
+
+    /* =========================================
+       DESKTOP
+    ========================================= */
+
+    @media (min-width: 600px) {
+
+      .page {
+        padding: 20px;
+      }
+
+      .container {
+        max-height: 850px;
+      }
+
+    }
+
+  </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2224475024786446');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2224475024786446&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <!-- BACKGROUND -->
+
+    <div class="bg-grid"></div>
+
+    <div class="blue-orb"></div>
+    <div class="green-orb"></div>
+    <div class="purple-orb"></div>
+
+
+    <section class="container">
+
+
+      <!-- =================================
+           TOP
+      ================================== -->
+
+      <div class="top">
+
+
+        <!-- LIVE STATUS -->
+
+        <div class="live-pill">
+
+          <span class="live-dot"></span>
+
+          <span>
+            Live Community • Active Now
+          </span>
+
+        </div>
+
+
+        <!-- LOGO -->
+
+        <div class="logo-stage">
+
+          <div class="logo-ring"></div>
+
+          <div class="logo-glow"></div>
+
+
+          <!-- Floating sports elements -->
+
+          <div class="football">
+            ⚽
+          </div>
+
+          <div class="cricket">
+            🏏
+          </div>
+
+
+          <!-- Same folder: logo.png -->
+
+          <img
+            src="https://raw.githubusercontent.com/online512/im/d31b6de47d9b046afaac1574fedece15629bb1fb/photo_2026-10-20_15-59-02.jpg"
+            alt="Albert Sir"
+            class="logo"
+          >
+
+        </div>
+
+
+        <!-- BRAND -->
+
+        <div class="brand-title">
+
+          <h1> 
+            <span>SARKAR</span>
+          </h1>
+
+          <div class="sub-brand">
+            
+          </div>
+
+        </div>
+
+
+        <!-- MOVING STATUS BAR -->
+
+        <div class="ticker-window">
+
+          <div class="ticker">
+
+            <span class="green">
+              ● TODAY'S CURRENT ACTIVE RATE — 93%
+            </span>
+
+            <span class="blue">
+              ⚡ CRICKET INSIGHTS
+            </span>
+
+            <span>
+              ⚽ FOOTBALL UPDATES
+            </span>
+
+            <span class="green">
+              ● COMMUNITY ACTIVE
+            </span>
+
+            <span class="blue">
+              🏏 MATCH ANALYSIS
+            </span>
+
+
+            <!-- Duplicate for seamless loop -->
+
+            <span class="green">
+              ● TODAY'S CURRENT ACTIVE RATE — 93%
+            </span>
+
+            <span class="blue">
+              ⚡ CRICKET INSIGHTS
+            </span>
+
+            <span>
+              ⚽ FOOTBALL UPDATES
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================
+           MIDDLE
+      ================================== -->
+
+      <div class="middle">
+
+
+        <!-- LIQUID ACTIVE RATE -->
+
+        <div class="active-card">
+
+          <div class="active-top">
+
+            <div class="active-label">
+              Today's Current Active Rate
+            </div>
+
+            <div class="active-value">
+              93%
+            </div>
+
+          </div>
+
+
+          <div class="liquid-track">
+
+            <div class="liquid-fill"></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================
+             THREE MINI ANIMATED FEATURES
+        ================================== -->
+
+        <div class="features">
+
+
+          <!-- CRICKET -->
+
+          <div class="feature">
+
+            <div class="mini-cricket">
+
+              <div class="bat"></div>
+
+              <div class="ball"></div>
+
+            </div>
+
+            <div class="feature-name">
+              Cricket
+            </div>
+
+          </div>
+
+
+          <!-- FOOTBALL -->
+
+          <div class="feature">
+
+            <div class="mini-football">
+
+              <div class="ball-icon">
+                ⚽
+              </div>
+
+              <div class="football-line"></div>
+
+            </div>
+
+            <div class="feature-name">
+              Football
+            </div>
+
+          </div>
+
+
+          <!-- ANALYSIS -->
+
+          <div class="feature">
+
+            <div class="mini-analysis">
+
+              <div class="analysis-bar"></div>
+              <div class="analysis-bar"></div>
+              <div class="analysis-bar"></div>
+              <div class="analysis-bar"></div>
+              <div class="analysis-bar"></div>
+
+            </div>
+
+            <div class="feature-name">
+              Analysis
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================
+           CTA
+      ================================== -->
+
+      <div class="cta-area">
+
+        <button
+  type="button"
+  class="cta"
+  onclick="window.open('https://t.me/+mrilSxEb0zxkZTM0', '_blank')"
+>
+  STEP INTO SARKAR
+</button>
+
+
+        <div class="cta-note">
+          Connect • Explore • Stay Updated
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+
+      <div class="footer">
+        SARKAR • CRICKET & FOOTBALL
+      </div>
+
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
